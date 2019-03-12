@@ -24,7 +24,7 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
    ],
    providers: [
       AuthService,
-      // ErrorInterceptorProvider
+      ErrorInterceptorProvider
    ],
    bootstrap: [
       AppComponent
