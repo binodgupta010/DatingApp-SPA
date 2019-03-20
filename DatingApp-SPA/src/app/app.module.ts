@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -15,10 +16,9 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { UserService } from './_services/user.service';
-import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { MemberCardComponent } from './members/member-card/member-card.component';
-
+import { AuthGuard } from './_guard/auth.guard';
 
 @NgModule({
    declarations: [
@@ -42,7 +42,8 @@ import { MemberCardComponent } from './members/member-card/member-card.component
       AuthService,
       ErrorInterceptorProvider,
       AlertifyService,
-      UserService
+      UserService,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent

@@ -12,20 +12,24 @@ export class NavComponent implements OnInit {
 
   model: any = {};
 
-  constructor(public authService: AuthService, private alertifyService: AlertifyService, private router: Router) { }
+  constructor(public authService: AuthService,
+     private alertifyService: AlertifyService , private router: Router) { }
 
   ngOnInit() {
   }
 
   login() {
-
-    this.authService.login(this.model).subscribe(next => {
-      this.alertifyService.success('Logged in successfully');
-    }, error => {
-      this.alertifyService.error(error);
-    }, () => {
-      this.router.navigate(['/members']);
-    });
+   this.authService.login(this.model).subscribe(
+     next => {
+        this.alertifyService.success('Loged in Successfully');
+        console.log('Loged in Successfully');
+     }, error => {
+       this.alertifyService.error(error);
+       console.log(error);
+     }, () => {
+      this.router.navigate(['./member']);
+     }
+   );
   }
 
   loggedIn() {
@@ -35,6 +39,7 @@ export class NavComponent implements OnInit {
   loggedOut() {
     localStorage.removeItem('token');
     this.alertifyService.message('Loged Out');
+    this.router.navigate(['./home']);
     console.log('loged out');
   }
 }
