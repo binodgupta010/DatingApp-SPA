@@ -4,11 +4,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../_models/User';
 
-const httpoption = {
-    headers: new HttpHeaders({
-      'Authorization' : 'Bearer ' + localStorage.getItem('token')
-    })
-};
+// const httpoption = {
+//     headers: new HttpHeaders({
+//       'Authorization' : 'Bearer ' + localStorage.getItem('token')
+//     })
+// };
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +20,12 @@ baseUrl = environment.apiUrl;
 constructor(private http: HttpClient) { }
 
 getUsers(): Observable<User[]> {
-  return this.http.get<User[]>(this.baseUrl + 'users' , httpoption);
+  // return this.http.get<User[]>(this.baseUrl + 'users' , httpoption);//token passed in appmodule
+  return this.http.get<User[]>(this.baseUrl + 'users');
 }
 
 getUser(id): Observable<User> {
-  return this.http.get<User>(this.baseUrl + 'users/' + id , httpoption);
+ // return this.http.get<User>(this.baseUrl + 'users/' + id , httpoption);
+ return this.http.get<User>(this.baseUrl + 'users/' + id);
 }
 }
