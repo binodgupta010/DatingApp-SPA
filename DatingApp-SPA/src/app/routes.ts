@@ -17,7 +17,7 @@ export const appRoutes: Routes = [
     children:  [
       { path: 'member' , component : MemberListComponent ,
           resolve: { users: MemberListResolver}},
-      { path: 'member/:id' , component : MemberDetailComponent, 
+      { path: 'member/:id' , component : MemberDetailComponent,
           resolve: { user: MemberDetailResolver}},
       { path: 'messages' , component : MessagesComponent},
       { path: 'lists' , component : ListsComponent}
