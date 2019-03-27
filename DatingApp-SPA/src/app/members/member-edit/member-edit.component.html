@@ -17,6 +17,7 @@
       <div class="card">
         <img
           class="card-img-top img-thumbnail"
+          src="{{user.photoUrl}}"
           alt="{{ user.knownAs }}"
         />
 
@@ -60,7 +61,7 @@
       <div class="tab-panel">
         <tabset class="member-tabset">
           <tab heading="Edit Profile">
-            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser(editForm)">
               <h4>Descrption</h4>
               <textarea
                 name="introduction"

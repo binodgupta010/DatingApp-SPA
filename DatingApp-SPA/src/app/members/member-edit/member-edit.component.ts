@@ -19,9 +19,9 @@ export class MemberEditComponent implements OnInit {
 
  @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
-    if (this.editForm.dirty) {
-      $event.returnValue = true;
-    }
+    // if (this.editForm.dirty) {
+    //   $event.returnValue = true;
+    // }
   }
 
   constructor(private route: ActivatedRoute, private alertify: AlertifyService,
@@ -33,10 +33,10 @@ this.route.data.subscribe(data => {
 
 });
 }
-updateUser() {
+updateUser(editForm: NgForm) {
   this.userService.updateUser(this.authService.decodedToken.nameid, this.user).subscribe(next => {
     this.alertify.success('Profile Succesfully updated');
-    this.editForm.reset(this.user);
+     editForm.reset(this.user);
   }, error => {
     this.alertify.error(error);
   });
