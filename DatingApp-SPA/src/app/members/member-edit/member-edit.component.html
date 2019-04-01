@@ -3,7 +3,6 @@
     <div class="col-sm-4">
       <h2>Your Profile</h2>
     </div>
-
     <div class="col-sm-8">
       <div *ngIf="editForm.dirty" class="alert alert-info">
         <strong>Information:</strong> You have made Changes. Any unsaved changes
@@ -17,7 +16,7 @@
       <div class="card">
         <img
           class="card-img-top img-thumbnail"
-          src="{{user.photoUrl}}"
+          src="{{photoUrl}}"
           alt="{{ user.knownAs }}"
         />
 
@@ -104,10 +103,8 @@
             </form>
           </tab>
           <tab heading="Edit Photo">
-            <!-- <app-photo-editor
-              [photos]="user.photos"
-              (getMemberPhotoChange)="updateMainPhoto($event)"
-            ></app-photo-editor> -->
+             <app-photo-editor [photos]="user.photos" 
+             (getMemberPhotoChange)="updateMainPhoto($event)"></app-photo-editor>
           </tab>
         </tabset>
       </div>
